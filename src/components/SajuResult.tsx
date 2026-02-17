@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { SajuResultData, SajuInterpretation } from "@/lib/saju/types";
+import type { SajuResultData, SajuInterpretation, SajuInput } from "@/lib/saju/types";
 import PillarDisplay from "./PillarDisplay";
 import OhangChart from "./OhangChart";
 import ShareButton from "./ShareButton";
-import type { SajuInput } from "@/lib/saju/types";
+import { OHANG_COLOR, OHANG_HANJA } from "@/constants/saju";
 
 interface SajuResultProps {
   input: SajuInput;
@@ -111,6 +111,131 @@ export default function SajuResult({ input }: SajuResultProps) {
 
       {/* 오행 차트 */}
       <OhangChart analysis={saju.ohpiAnalysis} />
+
+      {/* 격국 & 신강/신약 & 용신 */}
+      {(saju.gyeokgukResult || saju.strengthResult || saju.yongsinResult) && (
+        <>
+          <div className="ink-divider" />
+          <div className="space-y-3">
+            <h3 className="text-center text-xs tracking-[0.2em] text-ivory-dim/60">
+              사주 분석
+            </h3>
+            <div className="grid grid-cols-1 gap-2.5">
+              {saju.gyeokgukResult && (
+                <div className="glass-card-inner rounded-lg p-3">
+                  <span className="text-xs font-bold text-moon/70">격국</span>
+                  <span className="ml-2 text-sm text-ivory/90">{saju.gyeokgukResult.name}</span>
+                  <p className="mt-1 text-[11px] text-ivory-dim/50">{saju.gyeokgukResult.description}</p>
+                </div>
+              )}
+              {saju.strengthResult && (
+                <div className="glass-card-inner rounded-lg p-3">
+                  <span className="text-xs font-bold text-moon/70">일간 강약</span>
+                  <span
+                    className="ml-2 text-sm font-bold"
+                    style={{
+                      color: saju.strengthResult.level === "신강"
+                        ? "#C4836A"
+                        : saju.strengthResult.level === "신약"
+                          ? "#5A8BA0"
+                          : "#C9A96E",
+                    }}
+                  >
+                    {saju.strengthResult.level}
+                  </span>
+                  <span className="ml-1 text-[11px] text-ivory-dim/50">
+                    (점수: {saju.strengthResult.score > 0 ? "+" : ""}{saju.strengthResult.score})
+                  </span>
+                  <div className="mt-1.5 flex gap-3 text-[11px] text-ivory-dim/50">
+                    <span>득령 {saju.strengthResult.deukryeong ? "○" : "×"}</span>
+                    <span>득지 {saju.strengthResult.deukji ? "○" : "×"}</span>
+                    <span>득세 {saju.strengthResult.deukse ? "○" : "×"}</span>
+                  </div>
+                </div>
+              )}
+              {saju.yongsinResult && (
+                <div className="glass-card-inner rounded-lg p-3">
+                  <span className="text-xs font-bold text-moon/70">용신</span>
+                  <span
+                    className="ml-2 text-sm font-bold"
+                    style={{ color: OHANG_COLOR[saju.yongsinResult.yongsin] }}
+                  >
+                    {saju.yongsinResult.yongsin}({OHANG_HANJA[saju.yongsinResult.yongsin]})
+                  </span>
+                  <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-ivory-dim/50">
+                    <span>
+                      희신:{" "}
+                      <span style={{ color: OHANG_COLOR[saju.yongsinResult.huisin] }}>
+                        {saju.yongsinResult.huisin}
+                      </span>
+                    </span>
+                    <span>
+                      기신:{" "}
+                      <span style={{ color: OHANG_COLOR[saju.yongsinResult.gisin] }}>
+                        {saju.yongsinResult.gisin}
+                      </span>
+                    </span>
+                    <span>
+                      구신:{" "}
+                      <span style={{ color: OHANG_COLOR[saju.yongsinResult.gusin] }}>
+                        {saju.yongsinResult.gusin}
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* 대운 */}
+      {saju.daeunResult && (
+        <>
+          <div className="ink-divider" />
+          <div className="space-y-3">
+            <h3 className="text-center text-xs tracking-[0.2em] text-ivory-dim/60">
+              대운 ({saju.daeunResult.direction} · {saju.daeunResult.startAge}세 시작)
+            </h3>
+            <div className="flex flex-wrap justify-center gap-1.5">
+              {saju.daeunResult.pillars.map((p, i) => {
+                const isCurrent = saju.daeunResult!.currentDaeun?.startAge === p.startAge;
+                return (
+                  <div
+                    key={i}
+                    className={`rounded-lg px-2.5 py-2 text-center ${
+                      isCurrent
+                        ? "ring-1 ring-moon/40 bg-moon/10"
+                        : "glass-card-inner"
+                    }`}
+                  >
+                    <div className="text-[10px] text-ivory-dim/40">
+                      {p.startAge}~{p.endAge}세
+                    </div>
+                    <div className={`text-sm ${isCurrent ? "text-moon font-bold" : "text-ivory/80"}`}>
+                      {p.hangul}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* 세운 */}
+      {saju.seunResult && (
+        <>
+          <div className="ink-divider" />
+          <div className="glass-card-inner rounded-lg p-3">
+            <span className="text-xs font-bold text-moon/70">{saju.seunResult.year}년 세운</span>
+            <span className="ml-2 text-sm text-ivory/90">{saju.seunResult.hangul}</span>
+            <span className="ml-2 text-[11px] text-ivory-dim/50">
+              {saju.seunResult.sipsin} · {saju.seunResult.unsung}
+            </span>
+          </div>
+        </>
+      )}
 
       <div className="ink-divider" />
 

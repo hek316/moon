@@ -33,7 +33,8 @@ export async function POST(request: Request) {
       // JSON 파싱 (코드 블록 제거)
       const jsonStr = raw.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
       interpretation = JSON.parse(jsonStr) as SajuInterpretation;
-    } catch {
+    } catch (aiError) {
+      console.error("Gemini AI 해석 오류:", aiError);
       // AI 해석 실패 시 기본 메시지
       interpretation = {
         summary: "사주팔자가 계산되었습니다.",

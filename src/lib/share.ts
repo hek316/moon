@@ -10,6 +10,7 @@ export function encodeShareData(input: SajuInput): string {
     d: input.day,
     h: input.hour,
     g: input.gender ?? "",
+    l: input.isLunar ? 1 : 0,
   });
   // base64url 인코딩
   const base64 = btoa(json);
@@ -36,6 +37,7 @@ export function decodeShareData(encoded: string): SajuInput | null {
       day: data.d,
       hour: data.h ?? 12,
       gender: data.g || undefined,
+      isLunar: data.l === 1 ? true : undefined,
     };
   } catch {
     return null;

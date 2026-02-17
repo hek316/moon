@@ -19,6 +19,8 @@ export default function SajuForm() {
   const [month, setMonth] = useState(1);
   const [day, setDay] = useState(1);
   const [hour, setHour] = useState(12);
+  const [gender, setGender] = useState<"male" | "female">("male");
+  const [isLunar, setIsLunar] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const daysInMonth = getDaysInMonth(year, month);
@@ -27,12 +29,42 @@ export default function SajuForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    const encoded = encodeShareData({ year, month, day, hour });
+    const encoded = encodeShareData({ year, month, day, hour, gender, isLunar });
     router.push(`/result/${encoded}`);
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      {/* 성별 & 음력 */}
+      <div className="grid grid-cols-2 gap-3">
+        <div>
+          <label className="mb-2 block text-xs tracking-wider text-ivory-dim">
+            성별
+          </label>
+          <select
+            value={gender}
+            onChange={(e) => setGender(e.target.value as "male" | "female")}
+            className="select-field"
+          >
+            <option value="male">남성</option>
+            <option value="female">여성</option>
+          </select>
+        </div>
+        <div>
+          <label className="mb-2 block text-xs tracking-wider text-ivory-dim">
+            달력
+          </label>
+          <select
+            value={isLunar ? "lunar" : "solar"}
+            onChange={(e) => setIsLunar(e.target.value === "lunar")}
+            className="select-field"
+          >
+            <option value="solar">양력</option>
+            <option value="lunar">음력</option>
+          </select>
+        </div>
+      </div>
+
       {/* 생년 */}
       <div>
         <label className="mb-2 block text-xs tracking-wider text-ivory-dim">

@@ -1,4 +1,4 @@
-import { calculateSaju } from "@fullstackfamily/manseryeok";
+import { calculateSaju, lunarToSolar } from "@fullstackfamily/manseryeok";
 import type { SajuInput, SajuResultData, Pillar, GyeokgukResult, GyeokgukName } from "./types";
 import {
   CHEONGAN_OHANG, JIJI_OHANG, CHEONGAN_EUMYANG, JIJANGGAN,
@@ -97,7 +97,16 @@ function analyzeGyeokguk(pillars: {
 
 // 사주팔자 계산 (전체 분석 파이프라인)
 export function calculateSajuResult(input: SajuInput): SajuResultData {
-  const { year, month, day, hour } = input;
+  let { year, month, day } = input;
+  const { hour } = input;
+
+  // 음력 → 양력 변환
+  if (input.isLunar) {
+    const result = lunarToSolar(year, month, day);
+    year = result.solar.year;
+    month = result.solar.month;
+    day = result.solar.day;
+  }
 
   const saju = calculateSaju(year, month, day, hour, 0);
 

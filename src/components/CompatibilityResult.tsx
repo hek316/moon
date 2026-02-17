@@ -10,7 +10,7 @@ export default function CompatibilityResult({
   compatibility,
   interpretation,
 }: CompatibilityResultProps) {
-  const { person1, person2, score, cheonganHap, jijiHap, jijiChung } = compatibility;
+  const { person1, person2, score, cheonganHap, jijiHap, jijiChung, jijiHyung, jijiPa, jijiHae } = compatibility;
 
   // 점수에 따라 달빛 색상 변화
   const scoreColor =
@@ -73,6 +73,24 @@ export default function CompatibilityResult({
           <div className="glass-card-inner rounded-lg p-3">
             <span className="text-xs font-bold text-oh-su">지지충</span>
             <span className="ml-2 text-xs text-ivory/70">{jijiChung.join(", ")}</span>
+          </div>
+        )}
+        {jijiHyung.length > 0 && (
+          <div className="glass-card-inner rounded-lg p-3">
+            <span className="text-xs font-bold text-oh-hwa">지지형</span>
+            <span className="ml-2 text-xs text-ivory/70">{jijiHyung.join(", ")}</span>
+          </div>
+        )}
+        {jijiPa.length > 0 && (
+          <div className="glass-card-inner rounded-lg p-3">
+            <span className="text-xs font-bold text-oh-to">지지파</span>
+            <span className="ml-2 text-xs text-ivory/70">{jijiPa.join(", ")}</span>
+          </div>
+        )}
+        {jijiHae.length > 0 && (
+          <div className="glass-card-inner rounded-lg p-3">
+            <span className="text-xs font-bold text-oh-geum">지지해</span>
+            <span className="ml-2 text-xs text-ivory/70">{jijiHae.join(", ")}</span>
           </div>
         )}
       </div>
