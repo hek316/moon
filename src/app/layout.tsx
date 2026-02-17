@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Nanum_Myeongjo, Nanum_Pen_Script } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const nanumMyeongjo = Nanum_Myeongjo({
@@ -38,6 +39,7 @@ export default function RootLayout({
         <div className="relative z-10 mx-auto flex min-h-screen max-w-md flex-col px-5 py-10">
           {children}
         </div>
+        <Analytics />
       </body>
     </html>
   );
