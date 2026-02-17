@@ -1,0 +1,357 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2026-02-17T04:36:19.484Z",
+  "activeFeatures": [
+    "moon",
+    "constants",
+    "saju",
+    "gemini",
+    "compatibility",
+    "[id]"
+  ],
+  "primaryFeature": "moon",
+  "features": {
+    "moon": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-02-16T16:56:43.723Z",
+        "lastUpdated": "2026-02-17T04:17:46.818Z"
+      },
+      "lastFile": "/Users/eunkyung/moon/src/components/CompatibilityResult.tsx"
+    },
+    "constants": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-02-16T16:57:35.476Z",
+        "lastUpdated": "2026-02-17T04:31:53.138Z"
+      },
+      "lastFile": "/Users/eunkyung/moon/src/constants/saju.ts"
+    },
+    "saju": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-02-16T16:57:48.820Z",
+        "lastUpdated": "2026-02-17T04:35:28.180Z"
+      },
+      "lastFile": "/Users/eunkyung/moon/src/lib/saju/daeun.ts"
+    },
+    "gemini": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-02-16T16:58:35.952Z",
+        "lastUpdated": "2026-02-17T04:36:19.484Z"
+      },
+      "lastFile": "/Users/eunkyung/moon/src/lib/gemini/prompts.ts"
+    },
+    "compatibility": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-02-16T16:59:20.187Z",
+        "lastUpdated": "2026-02-17T04:18:00.549Z"
+      },
+      "lastFile": "/Users/eunkyung/moon/src/app/compatibility/page.tsx"
+    },
+    "[id]": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-02-16T17:01:33.674Z",
+        "lastUpdated": "2026-02-17T04:17:14.585Z"
+      },
+      "lastFile": "/Users/eunkyung/moon/src/app/result/[id]/page.tsx"
+    }
+  },
+  "pipeline": {
+    "currentPhase": 1,
+    "level": "Dynamic",
+    "phaseHistory": []
+  },
+  "session": {
+    "startedAt": "2026-02-16T16:35:32.875Z",
+    "onboardingCompleted": false,
+    "lastActivity": "2026-02-17T04:36:19.484Z"
+  },
+  "history": [
+    {
+      "timestamp": "2026-02-16T16:56:43.723Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T16:57:35.476Z",
+      "feature": "constants",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T16:57:48.821Z",
+      "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T16:57:58.108Z",
+      "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T16:58:22.077Z",
+      "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T16:58:35.952Z",
+      "feature": "gemini",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T16:59:00.072Z",
+      "feature": "gemini",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T16:59:11.201Z",
+      "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T16:59:20.187Z",
+      "feature": "compatibility",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T16:59:32.621Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T16:59:49.513Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T17:00:00.687Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T17:00:17.003Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T17:00:31.227Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T17:00:39.529Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T17:00:59.975Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T17:01:33.674Z",
+      "feature": "[id]",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T17:01:56.338Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T17:02:13.615Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T17:02:31.863Z",
+      "feature": "compatibility",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T17:03:26.843Z",
+      "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T17:10:50.261Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T17:11:04.743Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T17:11:19.788Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-16T17:11:29.620Z",
+      "feature": "constants",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:16:16.246Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:16:34.923Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:16:42.117Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:17:02.837Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:17:14.585Z",
+      "feature": "[id]",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:17:28.767Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:17:46.818Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:18:00.549Z",
+      "feature": "compatibility",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:31:53.138Z",
+      "feature": "constants",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:32:27.444Z",
+      "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:32:51.305Z",
+      "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:33:14.931Z",
+      "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:33:38.870Z",
+      "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:34:13.535Z",
+      "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:34:59.775Z",
+      "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:35:28.180Z",
+      "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T04:36:19.484Z",
+      "feature": "gemini",
+      "phase": "do",
+      "action": "updated"
+    }
+  ]
+}
