@@ -19,6 +19,16 @@ function getAI(): GoogleGenAI {
 const cache = new Map<string, { data: string; timestamp: number }>();
 const CACHE_TTL = 1000 * 60 * 30; // 30분
 
+export class GeminiError extends Error {
+  constructor(
+    message: string,
+    public readonly statusCode?: number,
+  ) {
+    super(message);
+    this.name = "GeminiError";
+  }
+}
+
 export async function generateText(prompt: string, cacheKey?: string): Promise<string> {
   // 캐시 확인
   if (cacheKey) {
@@ -29,31 +39,29 @@ export async function generateText(prompt: string, cacheKey?: string): Promise<s
   }
 
   const genAI = getAI();
-  try {
-    const response = await genAI.models.generateContent({
-      model: "gemini-2.0-flash",
-      contents: prompt,
-    });
+  const response = await genAI.models.generateContent({
+    model: "gemini-2.0-flash",
+    contents: prompt,
+  });
 
-    const text = response.text ?? "";
+  const text = response.text ?? "";
+  if (!text) {
+    throw new GeminiError("Gemini API returned empty response");
+  }
 
-    // 캐시 저장
-    if (cacheKey) {
-      cache.set(cacheKey, { data: text, timestamp: Date.now() });
-      // 오래된 캐시 정리 (100개 초과 시)
-      if (cache.size > 100) {
-        const now = Date.now();
-        for (const [key, value] of cache) {
-          if (now - value.timestamp > CACHE_TTL) {
-            cache.delete(key);
-          }
+  // 캐시 저장
+  if (cacheKey) {
+    cache.set(cacheKey, { data: text, timestamp: Date.now() });
+    // 오래된 캐시 정리 (100개 초과 시)
+    if (cache.size > 100) {
+      const now = Date.now();
+      for (const [key, value] of cache) {
+        if (now - value.timestamp > CACHE_TTL) {
+          cache.delete(key);
         }
       }
     }
-
-    return text;
-  } catch (error) {
-    console.error("Error calling Gemini API:", error);
-    return ""; // Return empty string on error, let the caller handle the interpretation failure
   }
+
+  return text;
 }
