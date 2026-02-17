@@ -2,38 +2,42 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import CompatibilityForm from "@/components/CompatibilityForm";
-import CompatibilityResult from "@/components/CompatibilityResult";
-import type { CompatibilityResultData, CompatibilityInterpretation } from "@/lib/saju/types";
+import FortuneForm from "@/components/FortuneForm";
+import FortuneResult from "@/components/FortuneResult";
+import type { SajuResultData, FortuneInterpretation } from "@/lib/saju/types";
 
 interface ApiResponse {
-  compatibility: CompatibilityResultData;
-  interpretation: CompatibilityInterpretation;
+  saju: SajuResultData;
+  interpretation: FortuneInterpretation;
 }
 
-export default function CompatibilityPage() {
+export default function FortunePage() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ApiResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (
-    person1: { year: number; month: number; day: number; hour: number },
-    person2: { year: number; month: number; day: number; hour: number }
-  ) => {
+  const handleSubmit = async (input: {
+    year: number;
+    month: number;
+    day: number;
+    hour: number;
+    gender: "male" | "female";
+    isLunar: boolean;
+  }) => {
     setLoading(true);
     setError(null);
     setResult(null);
 
     try {
-      const res = await fetch("/api/compatibility", {
+      const res = await fetch("/api/fortune", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ person1, person2 }),
+        body: JSON.stringify(input),
       });
 
       if (!res.ok) {
         const errData = await res.json();
-        throw new Error(errData.error || "궁합 계산에 실패했습니다.");
+        throw new Error(errData.error || "운세 계산에 실패했습니다.");
       }
 
       const data = await res.json();
@@ -57,7 +61,7 @@ export default function CompatibilityPage() {
           </h1>
         </Link>
         <p className="mt-2 text-xs tracking-widest text-ivory-dim/50">
-          두 사람의 인연을 읽다
+          2026년 병오년, 당신의 한 해를 읽다
         </p>
       </header>
 
@@ -66,7 +70,10 @@ export default function CompatibilityPage() {
       <div className="glass-card w-full rounded-2xl p-7">
         {!result ? (
           <>
-            <CompatibilityForm onSubmit={handleSubmit} loading={loading} />
+            <p className="mb-6 text-center text-sm tracking-wider text-ivory-dim">
+              생년월일시를 알려주세요
+            </p>
+            <FortuneForm onSubmit={handleSubmit} loading={loading} />
             {error && (
               <div className="mt-4 glass-card-inner rounded-lg p-3 text-center text-sm text-dawn">
                 {error}
@@ -88,13 +95,10 @@ export default function CompatibilityPage() {
           </>
         ) : (
           <>
-            <CompatibilityResult
-              compatibility={result.compatibility}
-              interpretation={result.interpretation}
-            />
+            <FortuneResult interpretation={result.interpretation} />
             <div className="mt-6 flex justify-center">
               <button onClick={() => setResult(null)} className="btn-secondary">
-                다시 궁합 보기
+                다시 운세 보기
               </button>
             </div>
           </>
@@ -106,8 +110,8 @@ export default function CompatibilityPage() {
         <Link href="/saju" className="nav-link">
           사주 보기
         </Link>
-        <Link href="/fortune" className="nav-link">
-          2026 운세
+        <Link href="/compatibility" className="nav-link">
+          궁합 보기
         </Link>
       </nav>
     </div>

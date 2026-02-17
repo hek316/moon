@@ -137,6 +137,24 @@ export interface SajuInterpretation {
   luckyElements: string; // 행운의 요소
 }
 
+// 2026년 운세
+export interface MonthlyFortune {
+  month: number;
+  summary: string;
+  lucky: string;
+}
+
+export interface FortuneInterpretation {
+  yearSummary: string;   // 연간 총운 요약
+  wealth: string;        // 재물운
+  love: string;          // 연애운
+  health: string;        // 건강운
+  career: string;        // 직장운
+  monthlyFortunes: MonthlyFortune[]; // 월별 운세 (12개)
+  luckyElements: string; // 행운 요소
+  advice: string;        // 종합 조언
+}
+
 export interface CompatibilityInput {
   person1: SajuInput;
   person2: SajuInput;

@@ -255,7 +255,17 @@ export default function SajuResult({ input }: SajuResultProps) {
             <Section title="조언" content={interpretation.advice} emoji="言" />
           )}
           {interpretation.luckyElements && (
-            <Section title="행운의 요소" content={interpretation.luckyElements} emoji="運" />
+            <Section
+              title="행운의 요소"
+              content={
+                typeof interpretation.luckyElements === "string"
+                  ? interpretation.luckyElements
+                  : Object.entries(interpretation.luckyElements)
+                      .map(([k, v]) => `${k}: ${v}`)
+                      .join(", ")
+              }
+              emoji="運"
+            />
           )}
         </div>
       )}

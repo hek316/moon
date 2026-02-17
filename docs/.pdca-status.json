@@ -1,13 +1,14 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-02-17T05:41:34.481Z",
+  "lastUpdated": "2026-02-17T08:11:57.697Z",
   "activeFeatures": [
     "moon",
     "constants",
     "saju",
     "gemini",
     "compatibility",
-    "[id]"
+    "[id]",
+    "fortune"
   ],
   "primaryFeature": "moon",
   "features": {
@@ -20,9 +21,9 @@
       "documents": {},
       "timestamps": {
         "started": "2026-02-16T16:56:43.723Z",
-        "lastUpdated": "2026-02-17T05:41:15.005Z"
+        "lastUpdated": "2026-02-17T08:11:23.802Z"
       },
-      "lastFile": "/Users/eunkyung/moon/src/components/CompatibilityResult.tsx"
+      "lastFile": "/Users/eunkyung/moon/src/app/page.tsx"
     },
     "constants": {
       "phase": "do",
@@ -46,9 +47,9 @@
       "documents": {},
       "timestamps": {
         "started": "2026-02-16T16:57:48.820Z",
-        "lastUpdated": "2026-02-17T05:41:34.481Z"
+        "lastUpdated": "2026-02-17T08:11:43.215Z"
       },
-      "lastFile": "/Users/eunkyung/moon/src/lib/saju/calculator.ts"
+      "lastFile": "/Users/eunkyung/moon/src/app/saju/page.tsx"
     },
     "gemini": {
       "phase": "do",
@@ -59,9 +60,9 @@
       "documents": {},
       "timestamps": {
         "started": "2026-02-16T16:58:35.952Z",
-        "lastUpdated": "2026-02-17T04:36:19.484Z"
+        "lastUpdated": "2026-02-17T07:29:29.525Z"
       },
-      "lastFile": "/Users/eunkyung/moon/src/lib/gemini/prompts.ts"
+      "lastFile": "/Users/eunkyung/moon/src/lib/gemini/fortune-prompt.ts"
     },
     "compatibility": {
       "phase": "do",
@@ -72,7 +73,7 @@
       "documents": {},
       "timestamps": {
         "started": "2026-02-16T16:59:20.187Z",
-        "lastUpdated": "2026-02-17T04:18:00.549Z"
+        "lastUpdated": "2026-02-17T08:11:57.697Z"
       },
       "lastFile": "/Users/eunkyung/moon/src/app/compatibility/page.tsx"
     },
@@ -88,6 +89,19 @@
         "lastUpdated": "2026-02-17T04:17:14.585Z"
       },
       "lastFile": "/Users/eunkyung/moon/src/app/result/[id]/page.tsx"
+    },
+    "fortune": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-02-17T07:29:37.802Z",
+        "lastUpdated": "2026-02-17T08:11:56.305Z"
+      },
+      "lastFile": "/Users/eunkyung/moon/src/app/fortune/page.tsx"
     }
   },
   "pipeline": {
@@ -98,7 +112,7 @@
   "session": {
     "startedAt": "2026-02-16T16:35:32.875Z",
     "onboardingCompleted": false,
-    "lastActivity": "2026-02-17T05:41:34.481Z"
+    "lastActivity": "2026-02-17T08:11:57.697Z"
   },
   "history": [
     {
@@ -422,6 +436,84 @@
     {
       "timestamp": "2026-02-17T05:41:34.481Z",
       "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T07:28:52.861Z",
+      "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T07:29:29.525Z",
+      "feature": "gemini",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T07:29:37.802Z",
+      "feature": "fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T07:29:55.595Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T07:30:12.632Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T07:30:28.467Z",
+      "feature": "fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T07:30:30.224Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T07:30:41.509Z",
+      "feature": "fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T07:31:41.497Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:11:23.802Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:11:43.215Z",
+      "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:11:56.305Z",
+      "feature": "fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:11:57.697Z",
+      "feature": "compatibility",
       "phase": "do",
       "action": "updated"
     }
