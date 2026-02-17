@@ -2,6 +2,14 @@ import * as Sentry from "@sentry/nextjs";
 import { NextResponse } from "next/server";
 
 export async function GET() {
+  // instrumentation이 안 되었을 경우 여기서 직접 초기화
+  if (!Sentry.getClient()) {
+    Sentry.init({
+      dsn: process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN,
+      tracesSampleRate: 1.0,
+    });
+  }
+
   const dsn = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
   const client = Sentry.getClient();
 
