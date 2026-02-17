@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "lastUpdated": "2026-02-17T08:11:57.697Z",
+  "lastUpdated": "2026-02-17T14:03:01.320Z",
   "activeFeatures": [
     "moon",
     "constants",
@@ -8,7 +8,8 @@
     "gemini",
     "compatibility",
     "[id]",
-    "fortune"
+    "fortune",
+    "sentry-test"
   ],
   "primaryFeature": "moon",
   "features": {
@@ -21,9 +22,9 @@
       "documents": {},
       "timestamps": {
         "started": "2026-02-16T16:56:43.723Z",
-        "lastUpdated": "2026-02-17T08:11:23.802Z"
+        "lastUpdated": "2026-02-17T13:40:03.263Z"
       },
-      "lastFile": "/Users/eunkyung/moon/src/app/page.tsx"
+      "lastFile": "/Users/eunkyung/moon/sentry.client.config.ts"
     },
     "constants": {
       "phase": "do",
@@ -47,9 +48,9 @@
       "documents": {},
       "timestamps": {
         "started": "2026-02-16T16:57:48.820Z",
-        "lastUpdated": "2026-02-17T08:11:43.215Z"
+        "lastUpdated": "2026-02-17T09:14:55.798Z"
       },
-      "lastFile": "/Users/eunkyung/moon/src/app/saju/page.tsx"
+      "lastFile": "/Users/eunkyung/moon/src/app/api/saju/route.ts"
     },
     "gemini": {
       "phase": "do",
@@ -60,9 +61,9 @@
       "documents": {},
       "timestamps": {
         "started": "2026-02-16T16:58:35.952Z",
-        "lastUpdated": "2026-02-17T07:29:29.525Z"
+        "lastUpdated": "2026-02-17T14:03:01.320Z"
       },
-      "lastFile": "/Users/eunkyung/moon/src/lib/gemini/fortune-prompt.ts"
+      "lastFile": "/Users/eunkyung/moon/src/lib/gemini/client.ts"
     },
     "compatibility": {
       "phase": "do",
@@ -73,9 +74,9 @@
       "documents": {},
       "timestamps": {
         "started": "2026-02-16T16:59:20.187Z",
-        "lastUpdated": "2026-02-17T08:11:57.697Z"
+        "lastUpdated": "2026-02-17T09:15:15.089Z"
       },
-      "lastFile": "/Users/eunkyung/moon/src/app/compatibility/page.tsx"
+      "lastFile": "/Users/eunkyung/moon/src/app/api/compatibility/route.ts"
     },
     "[id]": {
       "phase": "do",
@@ -99,9 +100,22 @@
       "documents": {},
       "timestamps": {
         "started": "2026-02-17T07:29:37.802Z",
-        "lastUpdated": "2026-02-17T08:11:56.305Z"
+        "lastUpdated": "2026-02-17T09:15:07.623Z"
       },
-      "lastFile": "/Users/eunkyung/moon/src/app/fortune/page.tsx"
+      "lastFile": "/Users/eunkyung/moon/src/app/api/fortune/route.ts"
+    },
+    "sentry-test": {
+      "phase": "do",
+      "phaseNumber": 3,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-02-17T13:40:14.358Z",
+        "lastUpdated": "2026-02-17T13:40:14.358Z"
+      },
+      "lastFile": "/Users/eunkyung/moon/src/app/api/sentry-test/route.ts"
     }
   },
   "pipeline": {
@@ -112,7 +126,7 @@
   "session": {
     "startedAt": "2026-02-16T16:35:32.875Z",
     "onboardingCompleted": false,
-    "lastActivity": "2026-02-17T08:11:57.697Z"
+    "lastActivity": "2026-02-17T14:03:01.320Z"
   },
   "history": [
     {
@@ -514,6 +528,186 @@
     {
       "timestamp": "2026-02-17T08:11:57.697Z",
       "feature": "compatibility",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:27:22.487Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:27:27.163Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:27:32.010Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:27:36.281Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:27:45.940Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:27:49.881Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:27:54.326Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:27:57.861Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:28:04.671Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:28:08.853Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:28:13.735Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:29:59.642Z",
+      "feature": "fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:36:52.933Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T08:36:56.178Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T09:13:55.511Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T09:13:56.515Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T09:13:57.470Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T09:13:59.352Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T09:14:06.682Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T09:14:24.286Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T09:14:37.222Z",
+      "feature": "gemini",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T09:14:55.798Z",
+      "feature": "saju",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T09:15:07.623Z",
+      "feature": "fortune",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T09:15:15.089Z",
+      "feature": "compatibility",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T09:15:33.960Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T09:15:48.357Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T13:40:02.115Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T13:40:03.263Z",
+      "feature": "moon",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T13:40:14.358Z",
+      "feature": "sentry-test",
+      "phase": "do",
+      "action": "updated"
+    },
+    {
+      "timestamp": "2026-02-17T14:03:01.320Z",
+      "feature": "gemini",
       "phase": "do",
       "action": "updated"
     }

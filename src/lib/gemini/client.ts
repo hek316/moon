@@ -29,6 +29,26 @@ export class GeminiError extends Error {
   }
 }
 
+async function withRetry<T>(fn: () => Promise<T>, maxRetries = 3): Promise<T> {
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      return await fn();
+    } catch (error) {
+      const isRateLimit =
+        error instanceof Error &&
+        (error.message.includes("429") ||
+          error.message.includes("rate limit") ||
+          error.message.includes("quota"));
+
+      if (!isRateLimit || attempt === maxRetries) throw error;
+
+      const delay = Math.pow(2, attempt) * 1000; // 1s, 2s, 4s
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
+  throw new Error("Unreachable");
+}
+
 export async function generateText(prompt: string, cacheKey?: string): Promise<string> {
   // 캐시 확인
   if (cacheKey) {
@@ -39,10 +59,12 @@ export async function generateText(prompt: string, cacheKey?: string): Promise<s
   }
 
   const genAI = getAI();
-  const response = await genAI.models.generateContent({
-    model: "gemini-2.0-flash",
-    contents: prompt,
-  });
+  const response = await withRetry(() =>
+    genAI.models.generateContent({
+      model: "gemini-2.0-flash",
+      contents: prompt,
+    })
+  );
 
   const text = response.text ?? "";
   if (!text) {
