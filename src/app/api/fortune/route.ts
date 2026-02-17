@@ -30,7 +30,28 @@ export async function POST(request: Request) {
       const raw = await generateText(prompt, cacheKey);
 
       const jsonStr = raw.replace(/```json\n?/g, "").replace(/```\n?/g, "").trim();
-      interpretation = JSON.parse(jsonStr) as FortuneInterpretation;
+      const parsed = JSON.parse(jsonStr);
+
+      // Gemini가 문자열 대신 객체를 반환하는 경우 안전하게 변환
+      const safeStr = (v: unknown): string =>
+        typeof v === "string" ? v : typeof v === "object" && v !== null ? Object.values(v).join(", ") : String(v ?? "");
+
+      interpretation = {
+        yearSummary: safeStr(parsed.yearSummary),
+        wealth: safeStr(parsed.wealth),
+        love: safeStr(parsed.love),
+        health: safeStr(parsed.health),
+        career: safeStr(parsed.career),
+        monthlyFortunes: Array.isArray(parsed.monthlyFortunes)
+          ? parsed.monthlyFortunes.map((mf: Record<string, unknown>, i: number) => ({
+              month: typeof mf.month === "number" ? mf.month : i + 1,
+              summary: safeStr(mf.summary),
+              lucky: safeStr(mf.lucky),
+            }))
+          : Array.from({ length: 12 }, (_, i) => ({ month: i + 1, summary: "", lucky: "" })),
+        luckyElements: safeStr(parsed.luckyElements),
+        advice: safeStr(parsed.advice),
+      };
     } catch (aiError) {
       console.error("Gemini AI 운세 해석 오류:", aiError);
       interpretation = {

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HOUR_LABELS, HOUR_VALUES } from "@/constants/saju";
+import { loadBirthData } from "@/lib/storage";
 
 const currentYear = new Date().getFullYear();
 const years = Array.from({ length: currentYear - 1900 + 1 }, (_, i) => currentYear - i);
@@ -94,6 +95,18 @@ export default function CompatibilityForm({ onSubmit, loading }: CompatibilityFo
   const [person2, setPerson2] = useState<PersonInput>({
     year: 1992, month: 1, day: 1, hour: 12,
   });
+
+  useEffect(() => {
+    const saved = loadBirthData();
+    if (saved) {
+      setPerson1({
+        year: saved.year,
+        month: saved.month,
+        day: saved.day,
+        hour: saved.hour,
+      });
+    }
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

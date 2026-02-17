@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { encodeShareData } from "@/lib/share";
 import { HOUR_LABELS, HOUR_VALUES } from "@/constants/saju";
+import { saveBirthData, loadBirthData, clearBirthData } from "@/lib/storage";
 
 const currentYear = new Date().getFullYear();
 const years = Array.from({ length: currentYear - 1900 + 1 }, (_, i) => currentYear - i);
@@ -22,6 +23,20 @@ export default function SajuForm() {
   const [gender, setGender] = useState<"male" | "female">("male");
   const [isLunar, setIsLunar] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [hasSaved, setHasSaved] = useState(false);
+
+  useEffect(() => {
+    const saved = loadBirthData();
+    if (saved) {
+      setYear(saved.year);
+      setMonth(saved.month);
+      setDay(saved.day);
+      setHour(saved.hour);
+      setGender(saved.gender);
+      setIsLunar(saved.isLunar);
+      setHasSaved(true);
+    }
+  }, []);
 
   const daysInMonth = getDaysInMonth(year, month);
   const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
@@ -29,6 +44,7 @@ export default function SajuForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    saveBirthData({ year, month, day, hour, gender, isLunar });
     const encoded = encodeShareData({ year, month, day, hour, gender, isLunar });
     router.push(`/result/${encoded}`);
   };
@@ -147,6 +163,27 @@ export default function SajuForm() {
           )}
         </button>
       </div>
+
+      {hasSaved && (
+        <div className="text-center">
+          <button
+            type="button"
+            onClick={() => {
+              clearBirthData();
+              setHasSaved(false);
+              setYear(1990);
+              setMonth(1);
+              setDay(1);
+              setHour(12);
+              setGender("male");
+              setIsLunar(false);
+            }}
+            className="text-xs text-ivory-dim/60 underline underline-offset-2 hover:text-ivory-dim transition-colors"
+          >
+            저장된 정보 삭제
+          </button>
+        </div>
+      )}
     </form>
   );
 }
